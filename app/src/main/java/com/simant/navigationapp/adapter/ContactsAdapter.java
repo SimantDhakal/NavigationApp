@@ -71,7 +71,7 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.Contac
 
             imgProfile = itemView.findViewById(R.id.imageView);
             tbName = itemView.findViewById(R.id.textView);
-//            tvPhone = itemView.findViewById(R.id.textView2);
+            tvPhone = itemView.findViewById(R.id.textView2);
         }
     }
 

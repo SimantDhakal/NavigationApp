@@ -31,6 +31,7 @@ public class SIFragment extends Fragment {
         etPrinciple = view.findViewById(R.id.editPrinciple);
         etRate = view.findViewById(R.id.editRate);
         etTime = view.findViewById(R.id.editTime);
+        buttoncircle = view.findViewById(R.id.btnCalRadius);
 
         buttoncircle.setOnClickListener(new View.OnClickListener() {
             @Override

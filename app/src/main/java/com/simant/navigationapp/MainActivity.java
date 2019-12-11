@@ -29,7 +29,9 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-
+    private CircleFragment circleFragment;
+    private SIFragment siFragment;
+    private ContactFragment contactFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,19 +39,11 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
 
-//        FragmentManager fragmentManager = getSupportFragmentManager();
-//        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        circleFragment = new CircleFragment();
+        siFragment = new SIFragment();
+        contactFragment = new ContactFragment();
 
-//        if (status) {
-//            CircleFragment sumFragment = new CircleFragment();
-//            fragmentTransaction.replace(R.id.sec, sumFragment);
-//            fragmentTransaction.addToBackStack(null);
-//            fragmentTransaction.commit();
-//            status = false;
-//        } else {
-//        }
-
-        loadFragment(new SIFragment());
+        loadFragment(siFragment);
 
         setSupportActionBar(toolbar);
         FloatingActionButton fab = findViewById(R.id.fab);
@@ -108,11 +102,16 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_home) {
-            loadFragment(new CircleFragment());
+            loadFragment(circleFragment);
+            return true;
         } else if (id == R.id.nav_gallery) {
-            loadFragment(new Fragment());
+            loadFragment(siFragment);
+            return true;
         } else if (id == R.id.nav_slideshow) {
-            loadFragment(new Fragment());
+            loadFragment(contactFragment);
+            return true;
+        } else {
+
         }
 
 
@@ -127,15 +126,3 @@ public class MainActivity extends AppCompatActivity
         transaction.commit();
     }
 }
-
-//        FragmentManager fragmentManager = getSupportFragmentManager();
-//        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-
-//        if (status) {
-//            CircleFragment sumFragment = new CircleFragment();
-//            fragmentTransaction.replace(R.id.sec, sumFragment);
-//            fragmentTransaction.addToBackStack(null);
-//            fragmentTransaction.commit();
-//            status = false;
-//        } else {
-//        }
